@@ -49,6 +49,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    /* Required functions to implement*/
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let movies = movies {
             return movies.count
@@ -60,8 +61,6 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         let movie = movies![indexPath.row]
@@ -73,11 +72,10 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
         cell.movieImageView.setImageWith(imageUrl as! URL )
-        print("row \(indexPath.row)")
         return cell
     }
 
-    
+    /* Reload data when drag downn */
     func refreshControlAction(_refreshControl: UIRefreshControl) {
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
@@ -99,16 +97,5 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         task.resume()
 
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
