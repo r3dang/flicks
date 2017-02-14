@@ -95,8 +95,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
-
+Not really.. It was pretty easy to be honest. Going to continue working on it in my spare time.
 ## License
 
     Copyright [yyyy] [name of copyright owner]
