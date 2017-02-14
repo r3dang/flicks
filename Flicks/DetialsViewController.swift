@@ -25,6 +25,7 @@ class DetialsViewController: UIViewController {
         titleLabel.text = title
         let overview = movie["overview"]
         overviewLabel.text = overview as? String
+        overviewLabel.sizeToFit()
         let baseUrl = "https://image.tmdb.org/t/p/w500"
         if let posterPath = movie["poster_path"] as? String {
             let imageUrl = NSURL(string: baseUrl + posterPath)
